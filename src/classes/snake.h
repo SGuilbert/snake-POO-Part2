@@ -34,6 +34,7 @@ public:
     void affichSerpent();
 
     /** vérifie que le serpent ne touche pas les bords
+    * \return true en cas de collision
     */
     bool checkColisionWithBoard();
 
