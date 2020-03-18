@@ -64,7 +64,6 @@ void snake::move(int direction)
 
 bool snake::checkColisionWithBoard()
 {
-    serpent[0].debug();
     Board *b;
     b = Board::getInstance(); // on recup l'instance de board
     if (serpent[0].getX() == 0 || serpent[0].getX() == b->getXSize()-1) return TRUE;
