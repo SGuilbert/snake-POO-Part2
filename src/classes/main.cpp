@@ -19,80 +19,79 @@ using namespace std;
 #define  TOUCHE_KEY_LEFT 3
 #define  TOUCHE_KEY_RIGHT 4
 
-int kbhit(void)    /* Cette fonction retourne si une touche est appuyé par l'utilisateur https://github.com/ajpaulson/learning-ncurses/blob/master/kbhit.c */
-{
-    int ch, r;
-
-
-    nodelay(stdscr, TRUE);
-
-
-
-    ch = getch();
-    if( ch == ERR)
-            r = FALSE;
-    else
-    {
-            r = TRUE;
-            ungetch(ch);
-    }
-
-
-    echo();
-    nodelay(stdscr, FALSE);
-    return(r);
-}
+/** Cette fonction retourne si une touche est appuyé par l'utilisateur
+*   https://github.com/ajpaulson/learning-ncurses/blob/master/kbhit.c
+*/
+int kbhit(void);
 
 int main()
 {
     int derniereDir=TOUCHE_KEY_DOWN;
 
-    // pointeurs sur l'unique instance de la classe UniqueObject
+    // pointeurs sur l'unique instance de la classe fenetre
     Board *fenetre;
     // initialisation des pointeurs
     fenetre = Board::getInstance ();
 
     snake serpent(10,4);
 
+    keypad (stdscr,true);
+    noecho();
+    while (true)
+    {
+
+        if(kbhit())
+        {
+            switch (getch())
+            {
+            case 259:
+                derniereDir = TOUCHE_KEY_UP;
+                serpent.move(TOUCHE_KEY_UP);
+                break;
+            case 260:
+                derniereDir = TOUCHE_KEY_LEFT;
+                serpent.move(TOUCHE_KEY_LEFT);
+                break;
+            case 258:
+                derniereDir = TOUCHE_KEY_DOWN;
+                serpent.move(TOUCHE_KEY_DOWN);
+                break;
+            case 261:
+                derniereDir = TOUCHE_KEY_RIGHT;
+                serpent.move(TOUCHE_KEY_RIGHT);
+                break;
+            }
 
 
 
-	keypad (stdscr,true);
-	noecho();
-	while (true)
-	{
+        }
+        else   //move left
+        {
+            serpent.move (derniereDir);
 
-		if(kbhit()) {
-			switch (getch()){
-				case 259:
-					derniereDir = TOUCHE_KEY_UP;
-					serpent.move(TOUCHE_KEY_UP);
-					break;
-				case 260:
-					derniereDir = TOUCHE_KEY_LEFT;
-					serpent.move(TOUCHE_KEY_LEFT);
-					break;
-				case 258:
-				    derniereDir = TOUCHE_KEY_DOWN;
-					serpent.move(TOUCHE_KEY_DOWN);
-					break;
-				case 261:
-				    derniereDir = TOUCHE_KEY_RIGHT;
-					serpent.move(TOUCHE_KEY_RIGHT);
-					break;
-			}
-
-
-
-		}else{ //move left
-		    serpent.move (derniereDir);
-
-		}
-		serpent.affichSerpent();
+        }
+        serpent.affichSerpent();
         usleep (150000);
 
-	}
+    }
     //getchar();
     fenetre->kill();
     return 0;
 };
+
+int kbhit(void)    /* Cette fonction retourne si une touche est appuyé par l'utilisateur https://github.com/ajpaulson/learning-ncurses/blob/master/kbhit.c */
+{
+    int ch, r;
+    nodelay(stdscr, TRUE);
+    ch = getch();
+    if( ch == ERR)
+        r = FALSE;
+    else
+    {
+        r = TRUE;
+        ungetch(ch);
+    }
+    echo();
+    nodelay(stdscr, FALSE);
+    return(r);
+}

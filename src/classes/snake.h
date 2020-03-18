@@ -33,6 +33,10 @@ public:
     */
     void affichSerpent();
 
+    /** vérifie que le serpent ne touche pas les bords
+    */
+    bool checkColisionWithBoard();
+
 
 private:
     /** tableau de point, corps du serpent*/
