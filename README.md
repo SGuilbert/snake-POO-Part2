@@ -10,7 +10,11 @@ sudo apt-get install libncurses5-dev libncursesw5-dev
 # Compiler le programme 
 g++ main.cpp snake.cpp Point.cpp Board.cpp -l ncurses -o bin/test-sanke
 
+--------
+
 **Chaque question fera l'objet d'au mois un commit**
+
+**Chaque methode devra être commentée dans le .h , sur le modèle des commentaire de la classe Point** 
 
 # Q1: compiler et tester le comportement
 
@@ -36,4 +40,5 @@ Pour le moment notre classe Point ne peut afficher que des * nous allons la fair
 2. Q5.2 Créez les accesseurs et mutateurs associés
 3. Q5.3 Modifiez les constructeurs existants pour que `m_caractere` soit initialisé par défaut à *
 4. Q5.4 Ajoutez un constructeur permetant d'initialiser `m_caractere` à une valeur choisie.
+5. q5.5 Créez un fichier testPoint.cpp pour tester votre classe
 
