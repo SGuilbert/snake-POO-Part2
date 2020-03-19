@@ -8,8 +8,9 @@ installer la librairie libncurse5
 sudo apt-get install libncurses5-dev libncursesw5-dev
 ```
 # Compiler le programme 
+```
 g++ main.cpp snake.cpp Point.cpp Board.cpp -l ncurses -o bin/test-sanke
-
+```
 --------
 
 **Chaque question fera l'objet d'au mois un commit**
@@ -40,5 +41,6 @@ Pour le moment notre classe Point ne peut afficher que des * nous allons la fair
 2. Q5.2 Créez les accesseurs et mutateurs associés
 3. Q5.3 Modifiez les constructeurs existants pour que `m_caractere` soit initialisé par défaut à *
 4. Q5.4 Ajoutez un constructeur permetant d'initialiser `m_caractere` à une valeur choisie.
-5. q5.5 Créez un fichier testPoint.cpp pour tester votre classe
+5. q5.5 Créez un fichier testPoint.cpp pour tester votre classe en affichant un @ par exemple.
+6. Q5.6 Modifier la méthode `afficherPoint(Point &p)` de la classe Board pour afficher le carractère du point passé en paramètre.
 
