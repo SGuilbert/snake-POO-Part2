@@ -13,10 +13,10 @@ g++ main.cpp snake.cpp Point.cpp Board.cpp -l ncurses -o bin/test-sanke
 ```
 --------
 
+# Developpement
 **Chaque question fera l'objet d'au mois un commit**
 
 **Chaque methode devra être commentée dans le .h , sur le modèle des commentaire de la classe Point** 
-# Developpement
 
 ## Q1: compiler et tester le comportement
 
