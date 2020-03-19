@@ -16,12 +16,13 @@ g++ main.cpp snake.cpp Point.cpp Board.cpp -l ncurses -o bin/test-sanke
 **Chaque question fera l'objet d'au mois un commit**
 
 **Chaque methode devra être commentée dans le .h , sur le modèle des commentaire de la classe Point** 
+# Developpement
 
-# Q1: compiler et tester le comportement
+## Q1: compiler et tester le comportement
 
-# Q2: indenter et commenter le main.cpp
+## Q2: indenter et commenter le main.cpp
 
-# Q3: gérer les collisions avec les bords
+## Q3: gérer les collisions avec les bords
 
 1. Q3.1    ajouter 2 variables membres privées à classe board: m_sizeX et m_sizeY
 2. Q3.2    faire les getter de ces 2 attributs
@@ -29,12 +30,12 @@ g++ main.cpp snake.cpp Point.cpp Board.cpp -l ncurses -o bin/test-sanke
 4. Q3.4 créer une methode "bool checkColisionWithBoard()" dans la classe snake. Cette methode devra renvoyer true en cas de collision
 5. Q3.5 modifier le programme principal pour sortir de la boucle `while(true){}` en cas de collision avec le bord du plateau
 
-# Q4 gérer les collisions avec le corps du serpent
+## Q4 gérer les collisions avec le corps du serpent
 
 1. Q4.1 créer une methode "bool checkColisionWithSnake()" dans la classe snake. Cette methode devra renvoyer true en cas de collision de la tête avec le corps. (inspirez vous de la methode d'affichage du serpent.
 2. Q4.2 modifier le programme principal pour sortir de la boucle `while(true){}` en cas de collision avec le bord du plateau **ou** avec le serpent.
 
-# Q5 Evolution de la classe Point
+## Q5 Evolution de la classe Point
 
 Pour le moment notre classe Point ne peut afficher que des * nous allons la faire évoluer pour pouvoir choisir le caractère à afficher.
 1. Q5.1 Ajouter un attribut de type `char` nommé m_caractere.
