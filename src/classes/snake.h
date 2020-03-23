@@ -38,10 +38,15 @@ public:
     */
     bool checkColisionWithBoard();
 
+    /** vérifie que le serpent ne se mords pas
+    * \return true en cas de collision
+    */
+    bool checkColisionWithSnake();
+
 
 private:
     /** tableau de point, corps du serpent*/
     Point serpent[50];
     /** longueur du serpent */
-    int longeur = 3;
+    int longeur = 6;
 };

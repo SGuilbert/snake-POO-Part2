@@ -15,6 +15,10 @@ public:
     /** Constructeur */
     Point(int x, int y);
 
+    Point(char unCar);
+
+    Point(int x, int y, char unCar);
+
     /** Default destructor */
     virtual ~Point();
 
@@ -65,11 +69,35 @@ public:
     *   Affiche les coordonnées
     */
     void debug();
+    /** Access caractere
+     * \return The current value of caractere
+     */
+    char getChar();
+
+    /** Set carractere
+     * \param val New value to set
+     */
+    void setChar(char val);
 protected:
 
 private:
     int m_x; //!< Member variable "m_x"
     int m_y; //!< Member variable "m_y"
+    char m_caractere; //!< Member variable "caractere"
 };
+
+/**les opérateurs (== , += , && ....)
+* ils sont déclarés à l'exterieur de la classe
+**/
+namespace std
+{
+    /** Opérateur de comparaison
+     * Il est déclaré dans le namespace std pour être utilisable
+     * directement (using name space std;)
+     * \param a un Point
+     * \param b un Point
+     */
+    bool operator==(Point const& a, Point const& b);
+}
 
 #endif // POINT_H

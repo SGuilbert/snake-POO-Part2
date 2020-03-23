@@ -71,3 +71,15 @@ bool snake::checkColisionWithBoard()
     return FALSE;
 }
 
+bool snake::checkColisionWithSnake()
+{
+
+    for(int d = 1; d < longeur; d++){ /** on commence à 1 car 0 est la tete du serpent */
+       if( serpent[d] == serpent[0] ){
+            return true;
+        }
+    }
+
+    return false;
+}
+
